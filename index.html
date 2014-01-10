@@ -5,34 +5,40 @@
     <title> Canvas Test</title>
    
   </head>
-  <body onLoad="init();">
-      <canvas id="canvasObject" width ="1200px " height="1000px"></canvas>
+  <body>
+      <canvas id="canvas" width ="1200px " height="1000px"></canvas>
 
 
       <style type="text/css">
       canvas {
         max-width: 100%;
+
+        /*Fun webkit filters*/
+        /*-webkit-filter: blur(10px); /* Optional:  The blur filter */
+        /*-webkit-filter: invert(1);  /* Optional:  The invert filter */
+        /*-webkit-filter: grayscale(1); /* Optional: The grayscale filter*/
+      
       }
       </style>
 
       <script> 
+        window.onload = function (){init();}
         var ctx;
         var width = 1200;
         var height = 1000;
 
         function init(){
-            ctx = document.getElementById('canvasObject').getContext('2d');
+            ctx = document.getElementById('canvas').getContext('2d');
             tick();
         }
 
         function tick(){
             draw();
             setTimeout(function(){tick();},1000);
+
         }
 
         function draw(){
-
-            
 
             for ( var i = 0; i < width; i+= 1){
               var rgb1 = Math.ceil((Math.random()*100) + 200);
@@ -46,6 +52,8 @@
               ctx.fillStyle = rgbValue;
 
               ctx.fillRect(colorWidth,0,colorWidth, height);
+
+
 
             }
 
