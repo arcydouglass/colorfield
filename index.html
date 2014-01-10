@@ -29,19 +29,19 @@
 
         function init(){
             ctx = document.getElementById('canvas').getContext('2d');
-            tick();
+            update();
         }
 
-        function tick(){
+        function update(){
             draw();
-            setTimeout(function(){tick();},1000);
+            setTimeout(function(){update();},1000);
 
         }
 
         function draw(){
 
             for ( var i = 0; i < width; i+= 1){
-              var rgb1 = Math.ceil((Math.random()*100) + 200);
+              var rgb1 = Math.ceil((Math.random()*100) + 200); /* Strengthen red part of spectrum */
               var rgb2 = Math.ceil(Math.random()*100);
               var rgb3 = Math.ceil(Math.random()*100);
 
@@ -59,7 +59,6 @@
 
         }
       </script>
-
     
   </body>
 </html>
