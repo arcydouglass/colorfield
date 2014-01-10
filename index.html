@@ -1,0 +1,57 @@
+<!-- A test with colors and javascript -->
+
+<html>
+  <head>
+    <title> Canvas Test</title>
+   
+  </head>
+  <body onLoad="init();">
+      <canvas id="canvasObject" width ="1200px " height="1000px"></canvas>
+
+
+      <style type="text/css">
+      canvas {
+        max-width: 100%;
+      }
+      </style>
+
+      <script> 
+        var ctx;
+        var width = 1200;
+        var height = 1000;
+
+        function init(){
+            ctx = document.getElementById('canvasObject').getContext('2d');
+            tick();
+        }
+
+        function tick(){
+            draw();
+            setTimeout(function(){tick();},1000);
+        }
+
+        function draw(){
+
+            
+
+            for ( var i = 0; i < width; i+= 1){
+              var rgb1 = Math.ceil(Math.random()*255);
+              var rgb2 = Math.ceil(Math.random()*255);
+              var rgb3 = Math.ceil(Math.random()*255);
+
+              var colorWidth =  i + Math.ceil(Math.random()*600);
+
+              var rgbValue = "rgb("+rgb1+", "+rgb2+", "+rgb3+")";
+
+              ctx.fillStyle = rgbValue;
+
+              ctx.fillRect(colorWidth,0,colorWidth, height);
+
+            }
+
+        }
+      </script>
+
+    
+  </body>
+</html>
